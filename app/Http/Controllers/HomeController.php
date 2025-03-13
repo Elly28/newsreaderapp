@@ -97,4 +97,11 @@ class HomeController extends Controller
             );
         }
     }
+
+    public function most_read()
+    {
+        $mostReadArticles = Article::where('read_count', '>', 0)->orderBy('read_count', 'desc')->paginate(6) ?? [];
+        $categories = Category::get();
+        return view('articles.most_read', compact('mostReadArticles', 'categories'));
+    }
 }

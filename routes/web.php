@@ -40,8 +40,8 @@ Route::get('/technology/{id}', [TechnologyNewsController::class, 'show'])->name(
 Route::get('/favorites', [TechnologyNewsController::class, 'index'])->name('favorites');
 Route::get('/favorites/{id}', [TechnologyNewsController::class, 'show'])->name('favorites.show');
 
-Route::get('/mostread', [TechnologyNewsController::class, 'index'])->name('mostread');
-Route::get('/mostread/{id}', [TechnologyNewsController::class, 'show'])->name('mostread.show');
+Route::get('/mostread', [HomeController::class, 'most_read'])->name('mostread');
+Route::get('/mostread/{id}/{category}', [HomeController::class, 'show_most_read'])->name('mostread.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

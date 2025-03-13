@@ -17,9 +17,29 @@
         <div class="bg-white p-4 shadow-md rounded-lg">
             <img src="{{ $article->urlToImage}}" alt="Image" class="w-full h-48 object-cover rounded-lg mb-4">
             <h2 class="text-xl font-semibold text-gray-800">
-                <a href="" class="hover:text-blue-500">{{ $article->title }}</a>
+                <a href="{{ $article->category_name }}/{{ $article->id }}" class="hover:text-blue-500">{{ $article->title }}</a>
             </h2>
             <p class="text-gray-600 mt-2">{{ Str::limit($article->content, 150) }}</p>
+            <div class="article-favorites mt-3">
+                <!-- Favorite Button Logic -->
+                @if (Auth::check())
+                    <!-- If the user is logged in, show the Add to Favorites button -->
+                    @if (Auth::user()->favorites()->where('article_id', $article->id)->exists())
+                        <form action="{{ route('article.unfavorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-red-500 hover:text-red-700">Remove from Favorites</button>
+                        </form>
+                    @else
+                        <form action="{{ route('article.favorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-blue-500 hover:text-blue-700">Add to Favorites</button>
+                        </form>
+                    @endif
+                @else
+                    <!-- If the user is not logged in, redirect to the login page when they try to favorite -->
+                    <a href="{{ route('login') }}" class="text-blue-500 hover:text-blue-700">Login to Favorite</a>
+                @endif
+            </div>
         </div>
         @endforeach
     </div>
@@ -37,9 +57,29 @@
         <div class="bg-white p-4 shadow-md rounded-lg">
             <img src="{{ $article->urlToImage}}" alt="Image" class="w-full h-48 object-cover rounded-lg mb-4">
             <h2 class="text-xl font-semibold text-gray-800">
-                <a href="" class="hover:text-blue-500">{{ $article->title }}</a>
+                <a href="{{ $article->category_name }}/{{ $article->id }}" class="hover:text-blue-500">{{ $article->title }}</a>
             </h2>
             <p class="text-gray-600 mt-2">{{ Str::limit($article->content, 150) }}</p>
+            <div class="article-favorites mt-3">
+                <!-- Favorite Button Logic -->
+                @if (Auth::check())
+                    <!-- If the user is logged in, show the Add to Favorites button -->
+                    @if (Auth::user()->favorites()->where('article_id', $article->id)->exists())
+                        <form action="{{ route('article.unfavorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-red-500 hover:text-red-700">Remove from Favorites</button>
+                        </form>
+                    @else
+                        <form action="{{ route('article.favorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-blue-500 hover:text-blue-700">Add to Favorites</button>
+                        </form>
+                    @endif
+                @else
+                    <!-- If the user is not logged in, redirect to the login page when they try to favorite -->
+                    <a href="{{ route('login') }}" class="text-blue-500 hover:text-blue-700">Login to Favorite</a>
+                @endif
+            </div>
         </div>
         @endforeach
     </div>
@@ -57,9 +97,29 @@
         <div class="bg-white p-4 shadow-md rounded-lg">
             <img src="{{ $article->urlToImage}}" alt="Image" class="w-full h-48 object-cover rounded-lg mb-4">
             <h2 class="text-xl font-semibold text-gray-800">
-                <a href="" class="hover:text-blue-500">{{ $article->title }}</a>
+                <a href="{{ $article->category_name }}/{{ $article->id }}" class="hover:text-blue-500">{{ $article->title }}</a>
             </h2>
             <p class="text-gray-600 mt-2">{{ Str::limit($article->content, 150) }}</p>
+            <div class="article-favorites mt-3">
+                <!-- Favorite Button Logic -->
+                @if (Auth::check())
+                    <!-- If the user is logged in, show the Add to Favorites button -->
+                    @if (Auth::user()->favorites()->where('article_id', $article->id)->exists())
+                        <form action="{{ route('article.unfavorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-red-500 hover:text-red-700">Remove from Favorites</button>
+                        </form>
+                    @else
+                        <form action="{{ route('article.favorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-blue-500 hover:text-blue-700">Add to Favorites</button>
+                        </form>
+                    @endif
+                @else
+                    <!-- If the user is not logged in, redirect to the login page when they try to favorite -->
+                    <a href="{{ route('login') }}" class="text-blue-500 hover:text-blue-700">Login to Favorite</a>
+                @endif
+            </div>
         </div>
         @endforeach
     </div>
@@ -77,9 +137,29 @@
         <div class="bg-white p-4 shadow-md rounded-lg">
             <img src="{{ $article->urlToImage}}" alt="Image" class="w-full h-48 object-cover rounded-lg mb-4">
             <h2 class="text-xl font-semibold text-gray-800">
-                <a href="" class="hover:text-blue-500">{{ $article->title }}</a>
+                <a href="{{ $article->category_name }}/{{ $article->id }}" class="hover:text-blue-500">{{ $article->title }}</a>
             </h2>
             <p class="text-gray-600 mt-2">{{ Str::limit($article->content, 150) }}</p>
+            <div class="article-favorites mt-3">
+                <!-- Favorite Button Logic -->
+                @if (Auth::check())
+                    <!-- If the user is logged in, show the Add to Favorites button -->
+                    @if (Auth::user()->favorites()->where('article_id', $article->id)->exists())
+                        <form action="{{ route('article.unfavorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-red-500 hover:text-red-700">Remove from Favorites</button>
+                        </form>
+                    @else
+                        <form action="{{ route('article.favorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-blue-500 hover:text-blue-700">Add to Favorites</button>
+                        </form>
+                    @endif
+                @else
+                    <!-- If the user is not logged in, redirect to the login page when they try to favorite -->
+                    <a href="{{ route('login') }}" class="text-blue-500 hover:text-blue-700">Login to Favorite</a>
+                @endif
+            </div>
         </div>
         @endforeach
     </div>
@@ -97,9 +177,29 @@
         <div class="bg-white p-4 shadow-md rounded-lg">
             <img src="{{ $article->urlToImage}}" alt="Image" class="w-full h-48 object-cover rounded-lg mb-4">
             <h2 class="text-xl font-semibold text-gray-800">
-                <a href="" class="hover:text-blue-500">{{ $article->title }}</a>
+                <a href="{{ $article->category_name }}/{{ $article->id }}" class="hover:text-blue-500">{{ $article->title }}</a>
             </h2>
             <p class="text-gray-600 mt-2">{{ Str::limit($article->content, 150) }}</p>
+            <div class="article-favorites mt-3">
+                <!-- Favorite Button Logic -->
+                @if (Auth::check())
+                    <!-- If the user is logged in, show the Add to Favorites button -->
+                    @if (Auth::user()->favorites()->where('article_id', $article->id)->exists())
+                        <form action="{{ route('article.unfavorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-red-500 hover:text-red-700">Remove from Favorites</button>
+                        </form>
+                    @else
+                        <form action="{{ route('article.favorite', ['id' => $article->id, 'category' => $article->category_id]) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="text-blue-500 hover:text-blue-700">Add to Favorites</button>
+                        </form>
+                    @endif
+                @else
+                    <!-- If the user is not logged in, redirect to the login page when they try to favorite -->
+                    <a href="{{ route('login') }}" class="text-blue-500 hover:text-blue-700">Login to Favorite</a>
+                @endif
+            </div>
         </div>
         @endforeach
     </div>
