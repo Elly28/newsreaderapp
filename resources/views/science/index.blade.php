@@ -9,14 +9,14 @@
 
 <div class="container mx-auto my-8">
     <div class="p-4">
-        <h3 class="text-3xl font-bold text-center" :class="{ 'text-white': darkMode, 'text-black': !darkMode }">Health News</h3>
+        <h3 class="text-3xl font-bold text-center" :class="{ 'text-white': darkMode, 'text-black': !darkMode }">Science News</h3>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        @foreach($healthArticles as $article)
+        @foreach($scienceArticles as $article)
         <div class="bg-white p-4 shadow-md rounded-lg">
             <img src="{{ $article->urlToImage}}" alt="Image" class="w-full h-48 object-cover rounded-lg mb-4">
             <h2 class="text-xl font-semibold text-gray-800">
-                <a href="{{ route('health.show', $article->id) }}" class="hover:text-blue-500">{{ $article->title }}</a>
+                <a href="{{ route('science.show', $article->id) }}" class="hover:text-blue-500">{{ $article->title }}</a>
             </h2>
             <p class="text-gray-600 mt-2">{{ Str::limit($article->content, 150) }}</p>
         </div>
@@ -24,7 +24,8 @@
     </div>
     <!-- Pagination -->
     <div class="d-flex justify-content-center mt-4">
-        {{ $healthArticles->links() }}
+        {{ $scienceArticles->links() }}
     </div>
 </div>
+
 @endsection

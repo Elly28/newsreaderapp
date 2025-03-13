@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\TechnologyNews;
-use Illuminate\Http\Request;
 
 class TechnologyNewsController extends Controller
 {
@@ -25,9 +23,14 @@ class TechnologyNewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TechnologyNews $technologyNews)
+    public function show($id)
     {
-        //
+        // Retrieve the article by ID
+        $article = Article::findOrFail($id);
+        $categories = Category::get();
+
+        // Return the single article view with the article data
+        return view('technology.show', compact('article', 'categories'));
     }
 
 }

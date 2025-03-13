@@ -25,9 +25,14 @@ class SportsNewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SportsNews $sportsNews)
+    public function show($id)
     {
-        //
+        // Retrieve the article by ID
+        $article = Article::findOrFail($id);
+        $categories = Category::get();
+
+        // Return the single article view with the article data
+        return view('sports.show', compact('article', 'categories'));
     }
 
 }

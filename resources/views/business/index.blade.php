@@ -16,7 +16,7 @@
         <div class="bg-white p-4 shadow-md rounded-lg">
             <img src="{{ $article->urlToImage}}" alt="Image" class="w-full h-48 object-cover rounded-lg mb-4">
             <h2 class="text-xl font-semibold text-gray-800">
-                <a href="" class="hover:text-blue-500">{{ $article->title }}</a>
+                <a href="{{ route('business.show', $article->id) }}" class="hover:text-blue-500">{{ $article->title }}</a>
             </h2>
             <p class="text-gray-600 mt-2">{{ Str::limit($article->content, 150) }}</p>
         </div>

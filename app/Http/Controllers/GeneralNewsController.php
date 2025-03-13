@@ -24,9 +24,14 @@ class GeneralNewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(GeneralNews $generalNews)
+    public function show($id)
     {
-        //
+        // Retrieve the article by ID
+        $article = Article::findOrFail($id);
+        $categories = Category::get();
+
+        // Return the single article view with the article data
+        return view('general.show', compact('article', 'categories'));
     }
 
 }

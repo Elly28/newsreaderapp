@@ -25,9 +25,14 @@ class HealthNewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(HealthNews $healthNews)
+    public function show($id)
     {
-        //
+        // Retrieve the article by ID
+        $article = Article::findOrFail($id);
+        $categories = Category::get();
+
+        // Return the single article view with the article data
+        return view('health.show', compact('article', 'categories'));
     }
 
 }

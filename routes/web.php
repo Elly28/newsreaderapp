@@ -16,14 +16,31 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/articles/{category}/{id}', [ArticleController::class, 'show'])->name('articles.show');
 
 Route::get('/business', [BusinessNewsController::class, 'index'])->name('business');
+Route::get('/business/{id}', [BusinessNewsController::class, 'show'])->name('business.show');
+
 Route::get('/entertainment', [EntertainmentNewsController::class, 'index'])->name('entertainment');
+Route::get('/entertainment/{id}', [EntertainmentNewsController::class, 'show'])->name('entertainment.show');
+
 Route::get('/general', [GeneralNewsController::class, 'index'])->name('general');
+Route::get('/general/{id}', [GeneralNewsController::class, 'show'])->name('general.show');
+
 Route::get('/health', [HealthNewsController::class, 'index'])->name('health');
+Route::get('/health/{id}', [HealthNewsController::class, 'show'])->name('health.show');
+
 Route::get('/science', [ScienceNewsController::class, 'index'])->name('science');
+Route::get('/science/{id}', [ScienceNewsController::class, 'show'])->name('science.show');
+
 Route::get('/sports', [SportsNewsController::class, 'index'])->name('sports');
+Route::get('/sports/{id}', [SportsNewsController::class, 'show'])->name('sports.show');
+
 Route::get('/technology', [TechnologyNewsController::class, 'index'])->name('technology');
+Route::get('/technology/{id}', [TechnologyNewsController::class, 'show'])->name('technology.show');
+
 Route::get('/favorites', [TechnologyNewsController::class, 'index'])->name('favorites');
+Route::get('/favorites/{id}', [TechnologyNewsController::class, 'show'])->name('favorites.show');
+
 Route::get('/mostread', [TechnologyNewsController::class, 'index'])->name('mostread');
+Route::get('/mostread/{id}', [TechnologyNewsController::class, 'show'])->name('mostread.show');
 
 
 Route::get('/dashboard', function () {
