@@ -45,4 +45,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function favoriteArticles()
+    {
+        return $this->belongsToMany(Article::class, 'favorites')->withTimestamps();
+    }
 }

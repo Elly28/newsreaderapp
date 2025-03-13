@@ -5,7 +5,7 @@
                 font-semibold hover:text-gray-200">Home
             </a>
             @foreach ($categories as $category)
-                <a href="{{ $category->name }}" class="text-white
+                <a href="/{{ $category->name }}" class="text-white
                     font-semibold hover:text-gray-200">{{ ucfirst($category->name) }}
                 </a>
             @endforeach

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BusinessNewsController;
 use App\Http\Controllers\EntertainmentNewsController;
+use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\GeneralNewsController;
 use App\Http\Controllers\HealthNewsController;
 use App\Http\Controllers\HomeController;
@@ -42,7 +43,6 @@ Route::get('/favorites/{id}', [TechnologyNewsController::class, 'show'])->name('
 Route::get('/mostread', [TechnologyNewsController::class, 'index'])->name('mostread');
 Route::get('/mostread/{id}', [TechnologyNewsController::class, 'show'])->name('mostread.show');
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -51,6 +51,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Add to favorites
+    Route::post('/article/{id}/{category}/favorite', [FavoriteController::class, 'addToFavorites'])->name('article.favorite');
+
+    // Remove from favorites
+    Route::post('/article/{id}/{category}/unfavorite', [FavoriteController::class, 'removeFromFavorites'])->name('article.unfavorite');
+
+    Route::get('/favorites', [FavoriteController::class, 'showFavorites'])->name('favorites');
 });
 
 require __DIR__.'/auth.php';

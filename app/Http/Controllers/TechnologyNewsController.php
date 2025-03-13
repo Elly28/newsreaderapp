@@ -27,6 +27,7 @@ class TechnologyNewsController extends Controller
     {
         // Retrieve the article by ID
         $article = Article::findOrFail($id);
+        $article->increment('read_count'); // Increment the read count
         $categories = Category::get();
 
         // Return the single article view with the article data
